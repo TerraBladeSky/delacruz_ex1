@@ -1,0 +1,298 @@
+:root {
+    --discord-primary: #36393f;
+    --discord-secondary: #2f3136;
+    --discord-tertiary: #202225;
+    --discord-accent: #5865f2;
+    --discord-text-primary: #dcddde;
+    --discord-text-secondary: #b9bbbe;
+    --discord-text-muted: #72767d;
+    --discord-link: #00b0f4;
+    --discord-hover: #40444b;
+    --discord-channel-height: 32px;
+    --discord-spacing: 16px;
+    --discord-radius: 4px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--discord-primary);
+    color: var(--discord-text-primary);
+    font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    overflow: hidden;
+    display: flex;
+    height: 100vh;
+}
+
+/* Server List Sidebar */
+.server-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    gap: 8px;
+    background-color: var(--discord-tertiary);
+    width: 72px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+.server-separator {
+    width: 32px;
+    height: 2px;
+    background-color: var(--discord-hover);
+    margin: 4px 0;
+    border-radius: 1px;
+}
+
+.server-icon {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--discord-secondary);
+    color: var(--discord-text-primary);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.server-icon::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    width: 8px;
+    height: 0;
+    background-color: white;
+    border-radius: 0 4px 4px 0;
+    transition: height 0.2s ease;
+}
+
+.server-icon:hover::before {
+    height: 20px;
+}
+
+.server-icon.active::before {
+    height: 40px;
+}
+
+.server-icon:hover {
+    border-radius: 16px;
+    background-color: var(--discord-accent);
+    transform: translateY(-2px);
+}
+
+.server-icon.active {
+    border-radius: 16px;
+    background-color: var(--discord-accent);
+}
+
+.server-icon[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 68px;
+    background-color: #18191c;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.98) translateX(-20px);
+    transition: all 0.15s ease;
+    z-index: 1000;
+}
+
+.server-icon[data-tooltip]:hover::after {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+}
+
+.server-indicator {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.server-icon.add-server {
+    background-color: var(--discord-secondary);
+    color: var(--discord-text-muted);
+}
+
+.server-icon.add-server:hover {
+    background-color: #3ba55c;
+    color: white;
+}
+
+.server-icon.fallback {
+    font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+/* Channel List */
+.channel-list {
+    width: 240px;
+    background-color: var(--discord-secondary);
+    flex-shrink: 0;
+    margin-left: 72px;
+}
+
+.channel-category {
+    padding: 16px 8px 4px 16px;
+    color: var(--discord-text-muted);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.channel-item {
+    padding: 6px 8px;
+    margin: 0 8px;
+    border-radius: var(--discord-radius);
+    color: var(--discord-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.channel-item:hover {
+    background-color: var(--discord-hover);
+    color: var(--discord-text-primary);
+}
+
+.channel-item.active {
+    background-color: var(--discord-hover);
+    color: var(--discord-text-primary);
+}
+
+/* Main Content Area */
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--discord-primary);
+    overflow-y: auto;
+    margin-left: 72px;
+}
+
+.content-header {
+    height: 48px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--discord-tertiary);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.content-main {
+    flex: 1;
+    padding: var(--discord-spacing);
+    overflow-y: auto;
+}
+
+/* Cards (Game Containers) */
+.game-container {
+    background-color: var(--discord-secondary);
+    border-radius: var(--discord-radius);
+    padding: var(--discord-spacing);
+    margin-bottom: var(--discord-spacing);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: white;
+    font-weight: 600;
+}
+
+a {
+    color: var(--discord-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--discord-tertiary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--discord-text-muted);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.2s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 0.2s ease-out;
+}
+
+/* Discord-style Buttons */
+.discord-button {
+    background-color: var(--discord-accent);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--discord-radius);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.discord-button:hover {
+    background-color: #4752c4;
+}
