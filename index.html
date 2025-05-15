@@ -141,6 +141,123 @@
       border-radius: 50%;
       background: #66ccff;
     }
+    
+    /* New styles for the table */
+    .roguelike-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      background-color: #2f2f45;
+    }
+    .roguelike-table thead tr {
+      background-color: #66ccff;
+      color: #222233;
+      text-align: left;
+      font-weight: bold;
+    }
+    .roguelike-table th,
+    .roguelike-table td {
+      padding: 12px 15px;
+      text-align: center;
+      border: 1px solid #444;
+    }
+    .roguelike-table tbody tr {
+      border-bottom: 1px solid #444;
+    }
+    .roguelike-table tbody tr:nth-of-type(even) {
+      background-color: #353550;
+    }
+    .roguelike-table tbody tr:last-of-type {
+      border-bottom: 2px solid #66ccff;
+    }
+    .title-cell {
+      text-align: left;
+      font-weight: bold;
+      color: #ff9933;
+    }
+    .highlight-cell {
+      background-color: rgba(255, 153, 51, 0.2);
+    }
+    .span-cell {
+      font-weight: bold;
+      background-color: rgba(102, 204, 255, 0.2);
+    }
+    
+    /* Gallery styles */
+    .image-gallery {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .image-gallery td {
+      width: 20%;
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #444;
+      background-color: #2f2f45;
+    }
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      transition: transform 0.2s;
+    }
+    .image-gallery img:hover {
+      transform: scale(1.05);
+    }
+    .image-gallery p {
+      margin-top: 5px;
+      font-size: 0.8em;
+      color: #aabbcc;
+    }
+    
+    /* iFrame container */
+    .iframe-container {
+      margin: 30px 0;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+    .map-container {
+      position: relative;
+      padding-bottom: 50%;
+      height: 0;
+      overflow: hidden;
+    }
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+    .iframe-description {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #aabbcc;
+      text-align: center;
+    }
+    
     @media (max-width: 768px) {
       .game-card {
         width: 100%;
@@ -152,6 +269,19 @@
       .nav-menu li {
         margin: 5px 0;
       }
+      .roguelike-table {
+        font-size: 0.7em;
+      }
+      .roguelike-table th,
+      .roguelike-table td {
+        padding: 8px 10px;
+      }
+      .image-gallery td {
+        width: 33.33%;
+      }
+      .image-gallery tr:nth-child(n+4) {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -161,9 +291,11 @@
     <li><a href="#intro">Introduction</a></li>
     <li><a href="#evolution">Evolution</a></li>
     <li><a href="#modern-classics">Modern Classics</a></li>
+    <li><a href="#comparison">Comparison</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#media">Media</a></li>
     <li><a href="#subgenres">Subgenres</a></li>
     <li><a href="#discussion">Discussion</a></li>
-    
   </ul>
   <div class="content-section">
     <h2 id="intro">Introduction</h2>
@@ -240,10 +372,280 @@
         <a href="recommendations.html#balatro">Read full review →</a>
       </div>
     </div>
+  </div>
+  
+  <!-- New section: Comparison Table -->
+  <div class="content-section">
+    <h2 id="comparison">Roguelike Comparison</h2>
+    <p>The following table provides a comprehensive comparison of notable roguelike and roguelite games across multiple dimensions:</p>
     
-    <p>These titles represent different approaches to the roguelike formula. <strong>Dead Cells</strong> emphasizes tight combat controls and build variety, <strong>Risk of Rain 2</strong> focuses on scaling difficulty and power fantasies, <strong>Hades</strong> prioritizes narrative integration, and <strong>Balatro</strong> demonstrates how roguelike principles can be applied to entirely different game genres.</p>
+    <table class="roguelike-table">
+      <thead>
+        <tr>
+          <th>Game Title</th>
+          <th>Year</th>
+          <th>Developer</th>
+          <th>Platform</th>
+          <th>Metacritic Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="title-cell">Rogue</td>
+          <td>1980</td>
+          <td>A.I. Design</td>
+          <td>UNIX</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td class="title-cell">NetHack</td>
+          <td>1987</td>
+          <td>NetHack DevTeam</td>
+          <td>Multiple</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td class="title-cell">The Binding of Isaac</td>
+          <td>2011</td>
+          <td>Edmund McMillen</td>
+          <td>PC, Console</td>
+          <td>84</td>
+        </tr>
+        <tr>
+          <td class="title-cell">Spelunky</td>
+          <td>2008</td>
+          <td>Derek Yu</td>
+          <td>PC, Console</td>
+          <td>87</td>
+        </tr>
+        <tr>
+          <td class="title-cell highlight-cell">Dead Cells</td>
+          <td>2018</td>
+          <td>Motion Twin</td>
+          <td>PC, Console, Mobile</td>
+          <td>89</td>
+        </tr>
+        <tr>
+          <td class="title-cell">Enter the Gungeon</td>
+          <td>2016</td>
+          <td>Dodge Roll</td>
+          <td>PC, Console</td>
+          <td>82</td>
+        </tr>
+        <tr>
+          <td class="title-cell highlight-cell">Hades</td>
+          <td>2020</td>
+          <td>Supergiant Games</td>
+          <td>PC, Console</td>
+          <td>93</td>
+        </tr>
+        <tr>
+          <td class="title-cell">Slay the Spire</td>
+          <td>2019</td>
+          <td>Mega Crit Games</td>
+          <td>PC, Console, Mobile</td>
+          <td>89</td>
+        </tr>
+        <tr>
+          <td class="title-cell highlight-cell">Risk of Rain 2</td>
+          <td>2020</td>
+          <td>Hopoo Games</td>
+          <td>PC, Console</td>
+          <td>85</td>
+        </tr>
+        <tr>
+          <td class="span-cell" colspan="5">Modern Roguelite Innovation Leaders</td>
+        </tr>
+        <tr>
+          <td class="title-cell">Balatro</td>
+          <td>2023</td>
+          <td>LocalThunk</td>
+          <td>PC, Console</td>
+          <td>91</td>
+        </tr>
+        <tr>
+          <td class="title-cell">Noita</td>
+          <td>2020</td>
+          <td>Nolla Games</td>
+          <td>PC</td>
+          <td>83</td>
+        </tr>
+        <tr>
+          <td class="title-cell">Caves of Qud</td>
+          <td>2015</td>
+          <td>Freehold Games</td>
+          <td>PC</td>
+          <td>84</td>
+        </tr>
+        <tr>
+          <td class="title-cell">Crypt of the NecroDancer</td>
+          <td>2015</td>
+          <td>Brace Yourself Games</td>
+          <td>PC, Console</td>
+          <td>87</td>
+        </tr>
+        <tr>
+          <td class="title-cell">Darkest Dungeon</td>
+          <td>2016</td>
+          <td>Red Hook Studios</td>
+          <td>PC, Console</td>
+          <td>84</td>
+        </tr>
+      </tbody>
+    </table>
     
-    <p>What these games share is their commitment to the core roguelike values: unpredictability, replayability, and meaningful consequences. They've each found ways to make failure feel like part of the journey rather than a frustrating setback.</p>
+    <p>The table highlights the evolution of the genre from the original <strong>Rogue</strong> to modern interpretations. Note how recent titles like <strong>Hades</strong> and <strong>Balatro</strong> have achieved higher critical acclaim than many earlier entries, demonstrating how the genre has matured and gained wider acceptance.</p>
+  </div>
+  
+  <!-- New section: Image Gallery -->
+  <div class="content-section">
+    <h2 id="gallery">Roguelike Image Gallery</h2>
+    <p>Below is a visual showcase of notable roguelike games throughout the years, highlighting their distinctive art styles and gameplay elements:</p>
+    
+    <table class="image-gallery">
+      <tr>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Rogue (1980)">
+          <p>Rogue (1980)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="NetHack (1987)">
+          <p>NetHack (1987)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Angband (1990)">
+          <p>Angband (1990)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="ADOM (1994)">
+          <p>ADOM (1994)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Dungeon Crawl Stone Soup (2006)">
+          <p>DCSS (2006)</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Spelunky (2008)">
+          <p>Spelunky (2008)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Binding of Isaac (2011)">
+          <p>Binding of Isaac (2011)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="FTL: Faster Than Light (2012)">
+          <p>FTL (2012)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Crypt of the NecroDancer (2015)">
+          <p>NecroDancer (2015)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Enter the Gungeon (2016)">
+          <p>Enter the Gungeon (2016)</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Dead Cells (2018)">
+          <p>Dead Cells (2018)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Slay the Spire (2019)">
+          <p>Slay the Spire (2019)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Risk of Rain 2 (2020)">
+          <p>Risk of Rain 2 (2020)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Hades (2020)">
+          <p>Hades (2020)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Noita (2020)">
+          <p>Noita (2020)</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Loop Hero (2021)">
+          <p>Loop Hero (2021)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Inscryption (2021)">
+          <p>Inscryption (2021)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Vampire Survivors (2022)">
+          <p>Vampire Survivors (2022)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Balatro (2023)">
+          <p>Balatro (2023)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="BlazBlue Entropy Effect (2024)">
+          <p>BlazBlue EE (2024)</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Cult of the Lamb (2022)">
+          <p>Cult of the Lamb (2022)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Returnal (2021)">
+          <p>Returnal (2021)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Children of Morta (2019)">
+          <p>Children of Morta (2019)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="Darkest Dungeon (2016)">
+          <p>Darkest Dungeon (2016)</p>
+        </td>
+        <td>
+          <img src="/api/placeholder/200/150" alt="20 Minutes Till Dawn (2022)">
+          <p>20 Minutes Till Dawn (2022)</p>
+        </td>
+      </tr>
+    </table>
+    
+    <p>This gallery showcases the visual evolution of roguelikes from ASCII-based text games to the vibrant, detailed art styles of modern roguelites. The progression demonstrates how technical limitations influenced early design philosophies, while modern titles emphasize visual storytelling alongside procedural generation.</p>
+  </div>
+  
+  <!-- New section: iFrames -->
+  <div class="content-section">
+    <h2 id="media">Media and Location</h2>
+    <p>Below you'll find videos showcasing two of the most influential modern roguelites, as well as the location of Motion Twin, the studio behind Dead Cells:</p>
+    
+    <h3>Dead Cells - Official Trailer</h3>
+    <div class="iframe-container">
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/i8nPR7aB62c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="iframe-description">Dead Cells combines fluid combat, permadeath, and Metroidvania exploration in a beautifully crafted procedural world.</p>
+    </div>
+    
+    <h3>Risk of Rain 2 - Official Trailer</h3>
+    <div class="iframe-container">
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pJ-aR--gScM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="iframe-description">Risk of Rain 2 transformed the 2D roguelike into a thrilling 3D shooter with increasing difficulty and an expansive item system.</p>
+    </div>
+    
+    <h3>Motion Twin Studio Location - Bordeaux, France</h3>
+    <div class="iframe-container">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.9650993255414!2d-0.5780053!3d44.8398416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527c5f0aa1b07%3A0x64a129dcd70d1a88!2sMotion%20Twin!5e0!3m2!1sen!2sus!4v1715933555693!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="iframe-description">Motion Twin is a worker cooperative game studio located in Bordeaux, France, known for the critically acclaimed roguelite Dead Cells.</p>
+    </div>
   </div>
   
   <div class="content-section">
